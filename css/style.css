@@ -55,6 +55,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: var(--accent-cyan) var(--bg-primary);
 }
@@ -897,7 +898,7 @@ footer {
     }
 
     .hero-left h1, .hero-title {
-        font-size: clamp(3rem, 8vw, 4.5rem);
+        font-size: clamp(2rem, 10vw, 4.5rem);
     }
 
     .hero-left .title-wrapper,
