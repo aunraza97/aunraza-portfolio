@@ -881,12 +881,22 @@ footer {
 @media (max-width: 1024px) {
     .hero-inner {
         grid-template-columns: 1fr;
-        text-align: center;
         gap: 3rem;
         padding-top: 4rem;
     }
 
-    .hero-left h1 {
+    .hero-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-title {
+        text-align: center;
+    }
+
+    .hero-left h1, .hero-title {
         font-size: clamp(3rem, 8vw, 4.5rem);
     }
 
@@ -894,15 +904,25 @@ footer {
     .hero-actions,
     .hero-socials {
         justify-content: center;
+        width: 100%;
     }
 
     .hero-left .description {
         margin-left: auto;
         margin-right: auto;
+        text-align: center;
     }
 
     .hero-right {
         order: -1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .avatar-placeholder {
+        justify-content: center;
+        align-items: center;
     }
 
     .skills-context-grid {
