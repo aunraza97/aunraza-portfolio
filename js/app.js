@@ -268,7 +268,19 @@ document.addEventListener('DOMContentLoaded', () => {
             // Swap active detail panel
             projectDetailPanels.forEach(panel => panel.classList.remove('active'));
             const targetPanel = document.getElementById(`proj-${targetId}`);
-            if (targetPanel) targetPanel.classList.add('active');
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+                
+                // Auto-scroll to detail panel on mobile/tablet (where list and details are stacked)
+                if (window.innerWidth <= 1024) {
+                    const detailWrapper = document.querySelector('.projects-detail-wrapper');
+                    if (detailWrapper) {
+                        // Offset by 100px so the fixed navbar doesn't cover the title
+                        const y = detailWrapper.getBoundingClientRect().top + window.pageYOffset - 100;
+                        window.scrollTo({top: y, behavior: 'smooth'});
+                    }
+                }
+            }
         });
     });
 
