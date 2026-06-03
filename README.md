@@ -1,33 +1,52 @@
-# Aun Raza Zaidi — Data Analytics Portfolio
+# Interactive Developer Portfolio
 
-Welcome to my personal portfolio website! I am a Data Analyst and AI Enthusiast specializing in enterprise data modeling, BI workflows, and Azure Databricks. 
+This repository contains the source code for a custom-built, highly interactive, and responsive personal portfolio website.
 
-You can view the live portfolio here: [https://aunraza97.github.io/aunraza-portfolio/](https://aunraza97.github.io/aunraza-portfolio/)
+**Live Site:** [https://aunraza97.github.io/aunraza-portfolio/](https://aunraza97.github.io/aunraza-portfolio/)
 
-## About
+## Architecture & Tech Stack
 
-This repository contains the source code for my interactive, single-page portfolio website. The site is designed to showcase my:
-- **Professional Experience:** My current and past roles in Data Analytics and Process Improvement.
-- **Key Projects:** Interactive case studies covering Semantic Layers, Power BI solutions, Databricks AI implementations, and more.
-- **Technical Skills:** A detailed look at my tech stack spanning Databricks, SAP Ecosystem, Power Platform, Python, and SQL.
+This project was built entirely from scratch without using any heavy frontend frameworks (like React or Angular), prioritizing lightweight performance, fast load times, and custom interactivity.
 
-## Tech Stack
+### Core Technologies
+- **HTML5:** Semantic structuring with deep attention to accessibility and SEO.
+- **CSS3 (Vanilla):** 
+  - Comprehensive use of **CSS Variables** for consistent theming and an easy-to-implement dark/light mode toggle.
+  - **CSS Grid & Flexbox** for fluid, responsive layouts.
+  - Advanced **CSS Animations & Transitions** for hover states, magnetic buttons, and glassmorphism styling.
+- **Vanilla JavaScript (ES6+):**
+  - Custom interactivity logic, handling split-panel navigation and intersection observers.
+  - An interactive, physics-based particle network rendered on a `<canvas>` element.
+  - Custom trailing-cursor physics.
 
-The portfolio is built with modern, lightweight web technologies for high performance and responsiveness:
-- **HTML5:** Semantic structure and accessibility.
-- **CSS3:** Custom styling, dark mode support, fluid typography, and CSS Grid/Flexbox layouts.
-- **Vanilla JavaScript:** Interactive UI components, scroll animations, the dynamic particle network hero background, and custom cursor logic without the overhead of heavy frameworks.
-- **FontAwesome & DevIcons:** For scalable, crisp iconography.
+## Key Features
 
-## Structure
+- **Particle Network Background (Canvas):** A dynamic, node-based particle animation runs in the hero section. The nodes interact with the user's cursor, drawing connections when the mouse hovers nearby.
+- **Custom Trailing Cursor:** Implemented via vanilla JS and CSS, providing a modern, magnetic feel when hovering over actionable elements like links or buttons.
+- **Split-Panel Project Viewer:** An interactive showcase built with custom event listeners. Clicking a project on the left updates the detailed view on the right, seamlessly integrating smooth scrolling on mobile devices.
+- **Responsive Design:** Fluid typography and layout shifts ensure the site looks pixel-perfect across ultrawide monitors, laptops, and mobile devices.
 
-- `index.html`: The main single-page application.
-- `css/style.css`: All styling, animations, and responsive design queries.
-- `js/app.js`: The logic handling interactive elements (project panels, theme toggling, particle network).
-- `assets/` & `Icons/`: Images, icons, and downloadable resources like my resume.
+## Running Locally
 
-## Connect
+To run the site locally for development:
 
-If you're interested in collaborating or learning more about my work, please reach out!
-- **LinkedIn:** [linkedin.com/in/aun-raza](https://linkedin.com/in/aun-raza)
-- **Email:** [syed.aunraza.zaidi@gmail.com](mailto:syed.aunraza.zaidi@gmail.com)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aunraza97/aunraza-portfolio.git
+   ```
+2. Navigate into the directory:
+   ```bash
+   cd aunraza-portfolio
+   ```
+3. Start a local HTTP server (using Python, for example):
+   ```bash
+   python -m http.server 5500
+   ```
+4. Open your browser and navigate to `http://localhost:5500`
+
+## File Structure
+
+- `index.html` - The core application entry point.
+- `css/style.css` - All styling, variables, and responsive breakpoints.
+- `js/app.js` - Global application logic, particle physics, and event handlers.
+- `assets/` & `Icons/` - Static assets, images, and the SVG favicon.
