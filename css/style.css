@@ -856,7 +856,7 @@ section {
 }
 
 .project-block.problem h4 {
-    color: var(--accent-coral);
+    color: var(--text-primary);
 }
 
 .project-block.solution h4 {
