@@ -726,6 +726,8 @@ section {
 
 .project-detail-panel {
     display: none;
+    grid-column: 1 / -1;
+    min-width: 0;
 }
 
 .project-detail-panel.active {
@@ -787,6 +789,10 @@ section {
     gap: 1.5rem;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 1.5rem;
+}
+
+.project-title-area {
+    min-width: 0;
 }
 
 .project-title-area h3 {
@@ -1084,7 +1090,7 @@ footer {
 
 
     .projects-split {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 2rem;
     }
 
@@ -1092,12 +1098,12 @@ footer {
         position: relative;
         top: auto;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.6rem;
     }
 
     .project-content-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 2rem;
     }
 
@@ -1177,7 +1183,7 @@ footer {
     }
 
     .projects-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         max-width: 100%;
         margin-bottom: 2rem;
     }
