@@ -1189,6 +1189,11 @@ footer {
         box-sizing: border-box;
     }
 
+    .pli-title {
+        white-space: normal;
+        word-break: break-word;
+    }
+
     .project-card {
         padding: 1.25rem;
         width: 100%;

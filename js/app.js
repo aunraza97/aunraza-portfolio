@@ -256,6 +256,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== PROJECT SPLIT PANEL =====
     const projectListItems = document.querySelectorAll('.project-list-item');
     const projectDetailPanels = document.querySelectorAll('.project-detail-panel');
+    const detailWrapper = document.querySelector('.projects-detail-wrapper');
+
+    // Move panels based on screen size
+    const arrangeProjectPanels = () => {
+        if (window.innerWidth <= 1024) {
+            // Move panels directly under their corresponding list items
+            projectListItems.forEach(item => {
+                const targetId = item.getAttribute('data-project');
+                const targetPanel = document.getElementById(`proj-${targetId}`);
+                if (targetPanel) {
+                    item.after(targetPanel);
+                }
+            });
+        } else {
+            // Move panels back to the detail wrapper
+            if (detailWrapper) {
+                projectDetailPanels.forEach(panel => {
+                    detailWrapper.appendChild(panel);
+                });
+            }
+        }
+    };
+
+    // Run on load and on resize
+    arrangeProjectPanels();
+    window.addEventListener('resize', arrangeProjectPanels);
 
     projectListItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -271,14 +297,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetPanel) {
                 targetPanel.classList.add('active');
                 
-                // Auto-scroll to detail panel on mobile/tablet (where list and details are stacked)
+                // Auto-scroll on mobile/tablet
                 if (window.innerWidth <= 1024) {
-                    const detailWrapper = document.querySelector('.projects-detail-wrapper');
-                    if (detailWrapper) {
-                        // Offset by 100px so the fixed navbar doesn't cover the title
-                        const y = detailWrapper.getBoundingClientRect().top + window.pageYOffset - 100;
-                        window.scrollTo({top: y, behavior: 'smooth'});
-                    }
+                    // Offset by 100px so the fixed navbar doesn't cover it
+                    const y = item.getBoundingClientRect().top + window.pageYOffset - 100;
+                    window.scrollTo({top: y, behavior: 'smooth'});
                 }
             }
         });
