@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 
-<body class="custom-cursor-enabled">
+<body class="custom-cursor-enabled" data-active-profile="data">
 
     <!-- CUSTOM CURSOR -->
     <div class="cursor-dot"></div>
@@ -36,7 +36,18 @@
     <!-- NAVBAR — Portfolio first, then Skills -->
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
-            <a href="#" class="nav-brand magnetic" data-strength="20">Aun<span>Raza</span></a>
+            <div class="nav-left">
+                <a href="#" class="nav-brand magnetic" data-strength="20">Aun<span>Raza</span></a>
+                <div class="profile-toggle-container navbar-profile-toggle">
+                    <div class="profile-toggle-slider"></div>
+                    <button class="profile-toggle-btn active" data-target="data">
+                        <i class="fa-solid fa-database"></i> <span class="toggle-text">Data &amp; AI</span>
+                    </button>
+                    <button class="profile-toggle-btn" data-target="engineering">
+                        <i class="fa-solid fa-gears"></i> <span class="toggle-text">Process Engineering</span>
+                    </button>
+                </div>
+            </div>
             <div class="nav-links">
                 <a href="#projects" class="magnetic" data-strength="15">Portfolio</a>
                 <a href="#skills" class="magnetic" data-strength="15">Skills</a>
@@ -74,12 +85,18 @@
                 <div class="title-wrapper">
                     <span class="typed-text"></span><span class="typed-cursor">|</span>
                 </div>
-                <p class="description">
+                <p class="description" data-profile="data">
                     Data analytics professional with hands-on experience at <strong>Linde Engineering</strong> building
                     enterprise data models, BI dashboards, and AI-driven pipelines on Azure Databricks, PySpark, SQL,
                     and Power BI. Currently completing a Master's in Technology &amp; Innovation Management at
                     Hochschule Harz, with a thesis on designing a semantic layer for enterprise analytics and AI
                     integration.
+                </p>
+                <p class="description" data-profile="engineering">
+                    Process Improvement Engineer with extensive experience at <strong>Hyundai Nishat Motor</strong> leading
+                    Six Sigma initiatives, cycle time optimization, and quality management. Specializing in bridging the gap
+                    between manufacturing operations and digitalization through Lean methodologies, Root Cause Analysis,
+                    and cross-functional project management.
                 </p>
                 <div class="hero-actions">
                     <a href="#projects" class="btn-primary magnetic" data-strength="40">View Projects</a>
@@ -113,7 +130,8 @@
 
                 <!-- LEFT: Clickable Project List -->
                 <div class="projects-list">
-                    <div class="project-list-item active" data-project="1">
+                    <!-- DATA PROJECTS -->
+                    <div class="project-list-item active" data-project="1" data-profile="data">
                         <span class="pli-number">01</span>
                         <div class="pli-info">
                             <span class="pli-title">Semantic Layer for Enterprise Analytics</span>
@@ -121,7 +139,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right pli-arrow"></i>
                     </div>
-                    <div class="project-list-item" data-project="2">
+                    <div class="project-list-item" data-project="2" data-profile="data">
                         <span class="pli-number">02</span>
                         <div class="pli-info">
                             <span class="pli-title">E-Commerce Data Pipeline & Semantic Layer</span>
@@ -129,7 +147,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right pli-arrow"></i>
                     </div>
-                    <div class="project-list-item" data-project="3">
+                    <div class="project-list-item" data-project="3" data-profile="data">
                         <span class="pli-number">03</span>
                         <div class="pli-info">
                             <span class="pli-title">Power BI Row-Level Commenting</span>
@@ -137,7 +155,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right pli-arrow"></i>
                     </div>
-                    <div class="project-list-item" data-project="4">
+                    <div class="project-list-item" data-project="4" data-profile="data">
                         <span class="pli-number">04</span>
                         <div class="pli-info">
                             <span class="pli-title">Power BI Modeling Assistant</span>
@@ -145,7 +163,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right pli-arrow"></i>
                     </div>
-                    <div class="project-list-item" data-project="5">
+                    <div class="project-list-item" data-project="5" data-profile="data">
                         <span class="pli-number">05</span>
                         <div class="pli-info">
                             <span class="pli-title">Manhours Forecasting Model (AI-Driven)</span>
@@ -153,7 +171,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right pli-arrow"></i>
                     </div>
-                    <div class="project-list-item" data-project="6">
+                    <div class="project-list-item" data-project="6" data-profile="data">
                         <span class="pli-number">06</span>
                         <div class="pli-info">
                             <span class="pli-title">OCR Tool with LLM Integration</span>
@@ -161,7 +179,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right pli-arrow"></i>
                     </div>
-                    <div class="project-list-item" data-project="7">
+                    <div class="project-list-item" data-project="7" data-profile="data">
                         <span class="pli-number">07</span>
                         <div class="pli-info">
                             <span class="pli-title">Tableau to Power BI Migration</span>
@@ -169,8 +187,74 @@
                         </div>
                         <i class="fa-solid fa-chevron-right pli-arrow"></i>
                     </div>
-                    <div class="project-list-item" data-project="8">
+                    <div class="project-list-item" data-project="8" data-profile="data">
                         <span class="pli-number">08</span>
+                        <div class="pli-info">
+                            <span class="pli-title">Operational Quality Dashboard & Defect Automation</span>
+                            <span class="pli-meta">Enterprise Solution &middot; Apr 2021 – May 2023</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right pli-arrow"></i>
+                    </div>
+
+                    <!-- ENGINEERING PROJECTS -->
+                    <div class="project-list-item active" data-project="9" data-profile="engineering">
+                        <span class="pli-number">09</span>
+                        <div class="pli-info">
+                            <span class="pli-title">Cycle Time Optimization & Layout Redesign</span>
+                            <span class="pli-meta">Process Optimization &middot; Apr 2021 – May 2023</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right pli-arrow"></i>
+                    </div>
+                    <div class="project-list-item" data-project="10" data-profile="engineering">
+                        <span class="pli-number">10</span>
+                        <div class="pli-info">
+                            <span class="pli-title">Zero-Defect Initiative & OEE Improvement</span>
+                            <span class="pli-meta">Quality Initiative &middot; Apr 2021 – May 2023</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right pli-arrow"></i>
+                    </div>
+                    <div class="project-list-item" data-project="11" data-profile="engineering">
+                        <span class="pli-number">11</span>
+                        <div class="pli-info">
+                            <span class="pli-title">Sonata & Santa-Fe Quality Management</span>
+                            <span class="pli-meta">Product Launch QA &middot; Apr 2021 – May 2023</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right pli-arrow"></i>
+                    </div>
+                    <div class="project-list-item" data-project="12" data-profile="engineering">
+                        <span class="pli-number">12</span>
+                        <div class="pli-info">
+                            <span class="pli-title">Pre-Production Launch Coordination</span>
+                            <span class="pli-meta">Project Management &middot; Apr 2021 – May 2023</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right pli-arrow"></i>
+                    </div>
+                    <div class="project-list-item" data-project="13" data-profile="engineering">
+                        <span class="pli-number">13</span>
+                        <div class="pli-info">
+                            <span class="pli-title">Kaizen Project: Sealer Application Efficiency</span>
+                            <span class="pli-meta">Cost Optimization &middot; Apr 2021 – May 2023</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right pli-arrow"></i>
+                    </div>
+                    <div class="project-list-item" data-project="14" data-profile="engineering">
+                        <span class="pli-number">14</span>
+                        <div class="pli-info">
+                            <span class="pli-title">Line Side Rejection (LSR) Tracking System</span>
+                            <span class="pli-meta">Process Traceability &middot; Apr 2021 – May 2023</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right pli-arrow"></i>
+                    </div>
+                    <div class="project-list-item" data-project="15" data-profile="engineering">
+                        <span class="pli-number">15</span>
+                        <div class="pli-info">
+                            <span class="pli-title">ProMA Digitalization Initiative</span>
+                            <span class="pli-meta">Digital Transformation &middot; Jul 2025 – May 2026</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right pli-arrow"></i>
+                    </div>
+                    <div class="project-list-item" data-project="16" data-profile="engineering">
+                        <span class="pli-number">16</span>
                         <div class="pli-info">
                             <span class="pli-title">BookMyConsult</span>
                             <span class="pli-meta">Productivity Solution &middot; Sep–Oct 2025</span>
@@ -183,7 +267,7 @@
                 <div class="projects-detail-wrapper">
 
                     <!-- DETAIL 1 -->
-                    <div class="project-detail-panel active" id="proj-1">
+                    <div class="project-detail-panel active" id="proj-1" data-profile="data">
                         <div class="project-card">
                             <div class="project-header">
                                 <div class="project-title-area">
@@ -227,7 +311,7 @@
                     </div>
 
                     <!-- DETAIL 2 -->
-                    <div class="project-detail-panel" id="proj-2">
+                    <div class="project-detail-panel" id="proj-2" data-profile="data">
                         <div class="project-card">
                             <div class="project-header">
                                 <div class="project-title-area">
@@ -263,7 +347,7 @@
                     </div>
 
                     <!-- DETAIL 3 -->
-                    <div class="project-detail-panel" id="proj-3">
+                    <div class="project-detail-panel" id="proj-3" data-profile="data">
                         <div class="project-card">
                             <div class="project-header">
                                 <div class="project-title-area">
@@ -305,7 +389,7 @@
                     </div>
 
                     <!-- DETAIL 4 -->
-                    <div class="project-detail-panel" id="proj-4">
+                    <div class="project-detail-panel" id="proj-4" data-profile="data">
                         <div class="project-card">
                             <div class="project-header">
                                 <div class="project-title-area">
@@ -352,7 +436,7 @@
                     </div>
 
                     <!-- DETAIL 5 -->
-                    <div class="project-detail-panel" id="proj-5">
+                    <div class="project-detail-panel" id="proj-5" data-profile="data">
                         <div class="project-card">
                             <div class="project-header">
                                 <div class="project-title-area">
@@ -393,7 +477,7 @@
                     </div>
 
                     <!-- DETAIL 6 -->
-                    <div class="project-detail-panel" id="proj-6">
+                    <div class="project-detail-panel" id="proj-6" data-profile="data">
                         <div class="project-card">
                             <div class="project-header">
                                 <div class="project-title-area">
@@ -433,7 +517,7 @@
                     </div>
 
                     <!-- DETAIL 7 -->
-                    <div class="project-detail-panel" id="proj-7">
+                    <div class="project-detail-panel" id="proj-7" data-profile="data">
                         <div class="project-card">
                             <div class="project-header">
                                 <div class="project-title-area">
@@ -473,7 +557,283 @@
                     </div>
 
                     <!-- DETAIL 8 -->
-                    <div class="project-detail-panel" id="proj-8">
+                    <div class="project-detail-panel" id="proj-8" data-profile="data">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-title-area">
+                                    <h3>📊 Operational Quality Dashboard & Defect Automation</h3>
+                                    <div class="project-meta">Enterprise Solution</div>
+                                </div>
+                                <div class="project-badge-area">
+                                    <div class="project-org">Hyundai Nishat Motor</div>
+                                    <div class="project-duration">Apr 2021 – May 2023</div>
+                                </div>
+                            </div>
+                            <div class="project-content-grid">
+                                <div class="project-block problem">
+                                    <h4><i class="fa-solid fa-flag"></i> Business Challenge</h4>
+                                    <p>Manual data entry delayed defect resolution and reduced operational efficiency on the assembly line. There was no real-time visibility into production quality trends.</p>
+                                </div>
+                                <div class="project-block solution">
+                                    <h4><i class="fa-solid fa-circle-check"></i> Solution</h4>
+                                    <p>Built real-time Power BI dashboards fed by SAP (via Power Query) and a Power Automate workflow to instantly triage and assign production defects to engineers based on severity. Eliminated manual data entry and drastically reduced defect resolution times.</p>
+                                </div>
+                            </div>
+                            <div class="project-footer">
+                                <span class="tech-label">Tech Stack</span>
+                                <div class="project-tags">
+                                    <span class="project-tag magnetic" data-strength="10">Power BI</span>
+                                    <span class="project-tag magnetic" data-strength="10">Power Automate</span>
+                                    <span class="project-tag magnetic" data-strength="10">SAP</span>
+                                    <span class="project-tag magnetic" data-strength="10">Power Query</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DETAIL 9 -->
+                    <div class="project-detail-panel active" id="proj-9" data-profile="engineering">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-title-area">
+                                    <h3>⏱️ Cycle Time Optimization & Layout Redesign</h3>
+                                    <div class="project-meta">Process Optimization</div>
+                                </div>
+                                <div class="project-badge-area">
+                                    <div class="project-org">Hyundai Nishat Motor</div>
+                                    <div class="project-duration">Apr 2021 – May 2023</div>
+                                </div>
+                            </div>
+                            <div class="project-content-grid">
+                                <div class="project-block problem">
+                                    <h4><i class="fa-solid fa-flag"></i> Business Challenge</h4>
+                                    <p>Uneven operator workloads across the Trim, Chassis, and Final assembly lines led to idle time (Mura) and process inefficiencies.</p>
+                                </div>
+                                <div class="project-block solution">
+                                    <h4><i class="fa-solid fa-circle-check"></i> Solution</h4>
+                                    <p>Applied Yamazumi (workload balancing) principles to redistribute tasks evenly among operators. This eliminated idle time, improved process stability, and achieved a 20% reduction in assembly cycle time while slightly boosting overall production output.</p>
+                                </div>
+                            </div>
+                            <div class="project-footer">
+                                <span class="tech-label">Tech Stack</span>
+                                <div class="project-tags">
+                                    <span class="project-tag magnetic" data-strength="10">Lean Manufacturing</span>
+                                    <span class="project-tag magnetic" data-strength="10">Time & Motion Studies</span>
+                                    <span class="project-tag magnetic" data-strength="10">Process Re-engineering</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DETAIL 10 -->
+                    <div class="project-detail-panel" id="proj-10" data-profile="engineering">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-title-area">
+                                    <h3>🎯 Zero-Defect Initiative & OEE Improvement</h3>
+                                    <div class="project-meta">Quality Initiative</div>
+                                </div>
+                                <div class="project-badge-area">
+                                    <div class="project-org">Hyundai Nishat Motor</div>
+                                    <div class="project-duration">Apr 2021 – May 2023</div>
+                                </div>
+                            </div>
+                            <div class="project-content-grid">
+                                <div class="project-block problem">
+                                    <h4><i class="fa-solid fa-flag"></i> Business Challenge</h4>
+                                    <p>The plant needed a standardized benchmark to ensure flawlessly assembled units and improve overall quality metrics across the floor.</p>
+                                </div>
+                                <div class="project-block solution">
+                                    <h4><i class="fa-solid fa-circle-check"></i> Solution</h4>
+                                    <p>Represented the Assembly Shop in a cross-functional task force to launch a visual "Zero Defect" tracking initiative. Selected vehicles were physically flagged and meticulously traced through every assembly gate to establish a perfect build standard, which was then used to train operators and standardize production.</p>
+                                </div>
+                            </div>
+                            <div class="project-footer">
+                                <span class="tech-label">Tech Stack</span>
+                                <div class="project-tags">
+                                    <span class="project-tag magnetic" data-strength="10">Six Sigma</span>
+                                    <span class="project-tag magnetic" data-strength="10">RCA</span>
+                                    <span class="project-tag magnetic" data-strength="10">5S</span>
+                                    <span class="project-tag magnetic" data-strength="10">Kaizen</span>
+                                    <span class="project-tag magnetic" data-strength="10">ISO Documentation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DETAIL 11 -->
+                    <div class="project-detail-panel" id="proj-11" data-profile="engineering">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-title-area">
+                                    <h3>🚘 Sonata & Santa-Fe Quality Management</h3>
+                                    <div class="project-meta">Product Launch QA</div>
+                                </div>
+                                <div class="project-badge-area">
+                                    <div class="project-org">Hyundai Nishat Motor</div>
+                                    <div class="project-duration">Apr 2021 – May 2023</div>
+                                </div>
+                            </div>
+                            <div class="project-content-grid">
+                                <div class="project-block problem">
+                                    <h4><i class="fa-solid fa-flag"></i> Business Challenge</h4>
+                                    <p>Ensuring built-in production quality and mitigating defect risks for two major new vehicle models during their strict on-schedule launch.</p>
+                                </div>
+                                <div class="project-block solution">
+                                    <h4><i class="fa-solid fa-circle-check"></i> Solution</h4>
+                                    <p>Conducted rigorous assembly quality inspections and authored Knock Down Quality Reports (KDQRs) to document part discrepancies. Escalated these technical reports directly to global suppliers, securing rapid design and manufacturing corrections prior to full-scale production.</p>
+                                </div>
+                            </div>
+                            <div class="project-footer">
+                                <span class="tech-label">Tech Stack</span>
+                                <div class="project-tags">
+                                    <span class="project-tag magnetic" data-strength="10">Quality Assurance</span>
+                                    <span class="project-tag magnetic" data-strength="10">Root Cause Analysis</span>
+                                    <span class="project-tag magnetic" data-strength="10">Cross-Functional Leadership</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DETAIL 12 -->
+                    <div class="project-detail-panel" id="proj-12" data-profile="engineering">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-title-area">
+                                    <h3>📋 Pre-Production Launch Coordination</h3>
+                                    <div class="project-meta">Project Management</div>
+                                </div>
+                                <div class="project-badge-area">
+                                    <div class="project-org">Hyundai Nishat Motor</div>
+                                    <div class="project-duration">Apr 2021 – May 2023</div>
+                                </div>
+                            </div>
+                            <div class="project-content-grid">
+                                <div class="project-block problem">
+                                    <h4><i class="fa-solid fa-flag"></i> Business Challenge</h4>
+                                    <p>Complex part validation and material readiness for new vehicle launches requiring intense cross-functional alignment.</p>
+                                </div>
+                                <div class="project-block solution">
+                                    <h4><i class="fa-solid fa-circle-check"></i> Solution</h4>
+                                    <p>Coordinated directly with the Materials Control department to manually validate over 200+ parts for the pre-production phase. Managed supplier feedback loops and milestone tracking to ensure 100% part readiness for a successful Start of Production (SOP).</p>
+                                </div>
+                            </div>
+                            <div class="project-footer">
+                                <span class="tech-label">Tech Stack</span>
+                                <div class="project-tags">
+                                    <span class="project-tag magnetic" data-strength="10">Project Management</span>
+                                    <span class="project-tag magnetic" data-strength="10">Supply Chain Coordination</span>
+                                    <span class="project-tag magnetic" data-strength="10">Stakeholder Management</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DETAIL 13 -->
+                    <div class="project-detail-panel" id="proj-13" data-profile="engineering">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-title-area">
+                                    <h3>🔧 Kaizen Project: Sealer Application Efficiency</h3>
+                                    <div class="project-meta">Cost Optimization</div>
+                                </div>
+                                <div class="project-badge-area">
+                                    <div class="project-org">Hyundai Nishat Motor</div>
+                                    <div class="project-duration">Apr 2021 – May 2023</div>
+                                </div>
+                            </div>
+                            <div class="project-content-grid">
+                                <div class="project-block problem">
+                                    <h4><i class="fa-solid fa-flag"></i> Business Challenge</h4>
+                                    <p>High process variation and material waste in Panoramic Roof & Windshield sealing applications presented a major cost-saving opportunity.</p>
+                                </div>
+                                <div class="project-block solution">
+                                    <h4><i class="fa-solid fa-circle-check"></i> Solution</h4>
+                                    <p>Developed and pitched a Proof of Concept (PoC) to transition from cartridge to drum packing combined with SPC (Statistical Process Control). Presented the business case to stakeholders, demonstrating a 50% reduction in process variation and massive projected annual material cost savings.</p>
+                                </div>
+                            </div>
+                            <div class="project-footer">
+                                <span class="tech-label">Tech Stack</span>
+                                <div class="project-tags">
+                                    <span class="project-tag magnetic" data-strength="10">Kaizen</span>
+                                    <span class="project-tag magnetic" data-strength="10">SPC</span>
+                                    <span class="project-tag magnetic" data-strength="10">Cost Optimization</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DETAIL 14 -->
+                    <div class="project-detail-panel" id="proj-14" data-profile="engineering">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-title-area">
+                                    <h3>📉 Line Side Rejection (LSR) Tracking System</h3>
+                                    <div class="project-meta">Process Traceability</div>
+                                </div>
+                                <div class="project-badge-area">
+                                    <div class="project-org">Hyundai Nishat Motor</div>
+                                    <div class="project-duration">Apr 2021 – May 2023</div>
+                                </div>
+                            </div>
+                            <div class="project-content-grid">
+                                <div class="project-block problem">
+                                    <h4><i class="fa-solid fa-flag"></i> Business Challenge</h4>
+                                    <p>Damaged parts were being discovered too late during installation, requiring costly vehicle disassembly, wasting man-hours, and risking damage to surrounding components.</p>
+                                </div>
+                                <div class="project-block solution">
+                                    <h4><i class="fa-solid fa-circle-check"></i> Solution</h4>
+                                    <p>Introduced a Line Side Rejection (LSR) procedure enforcing pre-installation inspection. This intercepted supplier defects (triggering KDQRs) and operator handling errors early, drastically reducing rework man-hours and secondary assembly damage.</p>
+                                </div>
+                            </div>
+                            <div class="project-footer">
+                                <span class="tech-label">Tech Stack</span>
+                                <div class="project-tags">
+                                    <span class="project-tag magnetic" data-strength="10">Quality Control</span>
+                                    <span class="project-tag magnetic" data-strength="10">Process Traceability</span>
+                                    <span class="project-tag magnetic" data-strength="10">Continuous Improvement</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DETAIL 15 -->
+                    <div class="project-detail-panel" id="proj-15" data-profile="engineering">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-title-area">
+                                    <h3>💻 ProMA Digitalization Initiative</h3>
+                                    <div class="project-meta">Digital Transformation</div>
+                                </div>
+                                <div class="project-badge-area">
+                                    <div class="project-org">Linde Engineering</div>
+                                    <div class="project-duration">Jul 2025 – May 2026</div>
+                                </div>
+                            </div>
+                            <div class="project-content-grid">
+                                <div class="project-block problem">
+                                    <h4><i class="fa-solid fa-flag"></i> Business Challenge</h4>
+                                    <p>A structured rollout and stakeholder management plan was needed for ProMA, a new SAP-based Minutes of Meeting application.</p>
+                                </div>
+                                <div class="project-block solution">
+                                    <h4><i class="fa-solid fa-circle-check"></i> Solution</h4>
+                                    <p>Drove stakeholder management and functional requirements. Conducted User Acceptance Testing (UAT), facilitated workshops, documented a structured backlog, and bridged the gap between business needs and IT development specifications.</p>
+                                </div>
+                            </div>
+                            <div class="project-footer">
+                                <span class="tech-label">Tech Stack</span>
+                                <div class="project-tags">
+                                    <span class="project-tag magnetic" data-strength="10">Agile Project Management</span>
+                                    <span class="project-tag magnetic" data-strength="10">UAT</span>
+                                    <span class="project-tag magnetic" data-strength="10">Requirements Engineering</span>
+                                    <span class="project-tag magnetic" data-strength="10">Stakeholder Management</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DETAIL 16 -->
+                    <div class="project-detail-panel" id="proj-16" data-profile="engineering">
                         <div class="project-card">
                             <div class="project-header">
                                 <div class="project-title-area">
@@ -488,16 +848,11 @@
                             <div class="project-content-grid">
                                 <div class="project-block problem">
                                     <h4><i class="fa-solid fa-flag"></i> Business Challenge</h4>
-                                    <p>Consultant availability was communicated entirely through ad-hoc Teams messages and
-                                        emails, creating constant back-and-forth with no structured way to view or book
-                                        available slots.</p>
+                                    <p>Consultant availability was communicated entirely through ad-hoc Teams messages and emails, creating constant back-and-forth with no structured way to view or book available slots.</p>
                                 </div>
                                 <div class="project-block solution">
                                     <h4><i class="fa-solid fa-circle-check"></i> Solution</h4>
-                                    <p>Built a two-sided Power App where consultants publish available slots directly, stored as
-                                        structured JSON in a SharePoint list. Users browse live availability and book hours in a
-                                        few clicks, triggering an automatic meeting invitation to the consultant, making the
-                                        entire process self-serve with no manual coordination.</p>
+                                    <p>Built a two-sided Power App where consultants publish available slots directly, stored as structured JSON in a SharePoint list. Users browse live availability and book hours in a few clicks, triggering an automatic meeting invitation to the consultant, making the entire process self-serve with no manual coordination.</p>
                                 </div>
                             </div>
                             <div class="project-footer">
@@ -652,6 +1007,26 @@
                         <span class="skill-tag">GitHub</span>
                         <span class="skill-tag">VS Code</span>
                         <span class="skill-tag">AI Coding Assistants</span>
+                    </div>
+                </div>
+
+                <div class="skill-row">
+                    <span class="skill-row-label">
+                        <img src="Icons/others.png" alt="Engineering Icon" class="skill-row-icon">
+                        Process Engineering
+                    </span>
+                    <div class="skill-row-tags">
+                        <span class="skill-tag">Lean Manufacturing</span>
+                        <span class="skill-tag">Six Sigma</span>
+                        <span class="skill-tag">Root Cause Analysis (RCA)</span>
+                        <span class="skill-tag">Kaizen</span>
+                        <span class="skill-tag">5S</span>
+                        <span class="skill-tag">Statistical Process Control (SPC)</span>
+                        <span class="skill-tag">Time &amp; Motion Studies</span>
+                        <span class="skill-tag">OEE Optimization</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Agile Methodology</span>
+                        <span class="skill-tag">Stakeholder Management</span>
                     </div>
                 </div>
 

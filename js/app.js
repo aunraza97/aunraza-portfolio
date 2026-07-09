@@ -28,6 +28,78 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ===== PROFILE VIEW TOGGLE =====
+    const toggleContainers = document.querySelectorAll('.profile-toggle-container');
+    const projectListItemsNodeList = document.querySelectorAll('.project-list-item');
+    const projectDetailPanelsNodeList = document.querySelectorAll('.project-detail-panel');
+
+    const updateProfileView = (profileType) => {
+        // Update body attribute for CSS visibility
+        document.body.setAttribute('data-active-profile', profileType);
+
+        // Update active class on buttons across all toggles
+        toggleContainers.forEach(container => {
+            const btns = container.querySelectorAll('.profile-toggle-btn');
+            const slider = container.querySelector('.profile-toggle-slider');
+            
+            btns.forEach(btn => btn.classList.remove('active'));
+            
+            const activeBtn = Array.from(btns).find(b => b.getAttribute('data-target') === profileType);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                if (slider) {
+                    const paddingLeft = parseFloat(window.getComputedStyle(container).paddingLeft) || 4.8;
+                    slider.style.width = `${activeBtn.offsetWidth}px`;
+                    slider.style.transform = `translateX(${activeBtn.offsetLeft - paddingLeft}px)`;
+                }
+            }
+        });
+
+        // Auto-select first project in the active profile
+        const firstActiveItem = Array.from(projectListItemsNodeList).find(
+            item => item.getAttribute('data-profile') === profileType
+        );
+
+        if (firstActiveItem) {
+            // Remove active class from all
+            projectListItemsNodeList.forEach(i => i.classList.remove('active'));
+            projectDetailPanelsNodeList.forEach(p => p.classList.remove('active'));
+
+            // Add active to first item
+            firstActiveItem.classList.add('active');
+            const targetPanel = document.getElementById(`proj-${firstActiveItem.getAttribute('data-project')}`);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+            }
+        }
+    };
+
+    if (toggleContainers.length > 0) {
+        // Initialize slider position
+        setTimeout(() => {
+            const initialActive = document.querySelector('.profile-toggle-btn.active');
+            const targetProfile = initialActive ? initialActive.getAttribute('data-target') : 'data';
+            updateProfileView(targetProfile);
+        }, 100); // small delay to ensure fonts/layout are loaded for accurate width
+
+        window.addEventListener('resize', () => {
+            const currentProfile = document.body.getAttribute('data-active-profile') || 'data';
+            updateProfileView(currentProfile);
+        });
+
+        toggleContainers.forEach(container => {
+            const btns = container.querySelectorAll('.profile-toggle-btn');
+            btns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetProfile = btn.getAttribute('data-target');
+                    if (targetProfile) {
+                        updateProfileView(targetProfile);
+                    }
+                });
+            });
+        });
+    }
+
     // ===== NAVBAR SCROLL EFFECT =====
     const navbar = document.querySelector('.navbar');
     const handleScroll = () => {
@@ -89,6 +161,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const scrollSpy = () => {
         const scrollY = window.pageYOffset;
+        
+        // Navbar scrolled state
+        const navbar = document.getElementById('navbar');
+        if (navbar) {
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+
         sections.forEach(current => {
             const sectionHeight = current.offsetHeight;
             const sectionTop = current.offsetTop - 150;
