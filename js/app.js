@@ -509,4 +509,40 @@ document.addEventListener('DOMContentLoaded', () => {
         animate();
     }
 
+    // ===== RESUME MODAL LOGIC =====
+    const resumeBtn = document.getElementById('hero-resume-btn');
+    const resumeModal = document.getElementById('resume-modal');
+    const resumeModalClose = document.getElementById('resume-modal-close');
+
+    if (resumeBtn && resumeModal && resumeModalClose) {
+        const openModal = (e) => {
+            e.preventDefault();
+            resumeModal.classList.add('show');
+        };
+
+        const closeModal = () => {
+            resumeModal.classList.remove('show');
+        };
+
+        // Open modal
+        resumeBtn.addEventListener('click', openModal);
+
+        // Close on X click
+        resumeModalClose.addEventListener('click', closeModal);
+
+        // Close on outside click
+        resumeModal.addEventListener('click', (e) => {
+            if (e.target === resumeModal) {
+                closeModal();
+            }
+        });
+
+        // Close on Esc key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && resumeModal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+    }
+
 });

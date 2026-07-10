@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <link rel="stylesheet" href="css/style.css?v=11">
 </head>
 
 <body class="custom-cursor-enabled" data-active-profile="data">
@@ -100,7 +100,7 @@
                 </p>
                 <div class="hero-actions">
                     <a href="#projects" class="btn-primary magnetic" data-strength="40">View Projects</a>
-                    <a href="#contact" class="btn-secondary magnetic" data-strength="30">Contact Me</a>
+                    <button id="hero-resume-btn" class="btn-secondary magnetic" data-strength="30" onclick="document.getElementById('resume-modal').classList.add('show')"><i class="fa-solid fa-download"></i> Download Resume</button>
                 </div>
                 <div class="hero-socials">
                     <a href="mailto:syed.aunraza.zaidi@gmail.com" class="magnetic" data-strength="30"
@@ -1079,8 +1079,42 @@
         <p class="copyright">&copy; 2026 Syed Muhammad Aun Raza Zaidi. All Rights Reserved.</p>
     </footer>
 
-    <!-- App Scripts -->
-    <script src="js/app.js?v=2"></script>
+    <!-- RESUME DOWNLOAD MODAL -->
+    <div class="resume-modal-overlay" id="resume-modal" onclick="if(event.target === this) this.classList.remove('show')">
+        <div class="resume-modal-box">
+            <button class="resume-modal-close" id="resume-modal-close" aria-label="Close modal" onclick="document.getElementById('resume-modal').classList.remove('show')"><i class="fa-solid fa-xmark"></i></button>
+            
+            <h3 class="resume-modal-title">Select Resume Profile</h3>
+            <p class="resume-modal-subtitle">Which version of my resume would you like to download?</p>
+            
+            <div class="resume-options">
+                <a href="assets/Aun_Raza_Data_AI_Resume.pdf" target="_blank" class="resume-option-card">
+                    <div class="resume-option-icon data-icon">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <div class="resume-option-text">
+                        <h4>Data &amp; AI</h4>
+                        <span>Analytics, Databricks, Power BI</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-down resume-download-icon"></i>
+                </a>
+                
+                <a href="assets/Aun_Raza_Engineering_Resume.pdf" target="_blank" class="resume-option-card">
+                    <div class="resume-option-icon eng-icon">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+                    <div class="resume-option-text">
+                        <h4>Process Engineering</h4>
+                        <span>Six Sigma, Lean, Project Mgmt</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-down resume-download-icon"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN JS -->
+    <script src="js/app.js?v=4"></script>
 
 </body>
 

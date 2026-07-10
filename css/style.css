@@ -120,7 +120,7 @@ img {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 9999;
+    z-index: 10000;
     transition: width 0.2s, height 0.2s, background 0.2s;
 }
 
@@ -134,7 +134,7 @@ img {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 9998;
+    z-index: 9999;
     transition: width 0.2s, height 0.2s, border-color 0.2s, background-color 0.2s;
 }
 
@@ -483,25 +483,30 @@ body[data-active-profile="engineering"] [data-profile="data"] {
     align-items: center;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, var(--accent-violet) 0%, #6366f1 100%);
-    color: #fff;
+.btn-primary, .btn-secondary {
     padding: 1rem 2.5rem;
     border-radius: 30px;
     font-weight: 700;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.5;
+    transition: var(--transition-smooth);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-violet) 0%, #6366f1 100%);
+    color: #fff;
     border: none;
     box-shadow: var(--glow-violet);
-    display: inline-block;
 }
 
 .btn-secondary {
     background: var(--bg-secondary);
     color: var(--text-primary);
-    padding: 1rem 2.5rem;
-    border-radius: 30px;
-    font-weight: 700;
     border: 1px solid var(--border-color);
-    display: inline-block;
 }
 
 .hero-socials {
@@ -1394,4 +1399,161 @@ footer {
 
 .mobile-menu a:hover {
     color: var(--text-primary);
+}
+
+/* =========================================
+   RESUME MODAL 
+========================================= */
+.resume-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+html[data-theme="light"] .resume-modal-overlay {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.resume-modal-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.resume-modal-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.resume-modal-overlay.show .resume-modal-box {
+    transform: translateY(0) scale(1);
+}
+
+.resume-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.resume-modal-close:hover {
+    color: var(--primary);
+}
+
+.resume-modal-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.resume-modal-subtitle {
+    color: var(--text-dim);
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+.resume-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.resume-option-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text);
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+html[data-theme="light"] .resume-option-card {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.resume-option-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+html[data-theme="light"] .resume-option-card:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.resume-option-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+html[data-theme="light"] .resume-option-icon {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.data-icon { color: var(--primary); }
+.eng-icon { color: var(--accent); }
+
+.resume-option-text {
+    flex: 1;
+}
+
+.resume-option-text h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.resume-option-text span {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+.resume-download-icon {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.resume-option-card:hover .resume-download-icon {
+    opacity: 1;
+    color: var(--primary);
+    transform: translateY(3px);
 }
